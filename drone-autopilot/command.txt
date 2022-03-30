@@ -1,0 +1,61 @@
+command
+takeoff
+speed 20
+stop
+cw 309
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 160
+stop
+ccw 271
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 57
+stop
+cw 273
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 500
+forward 298
+stop
+land
