@@ -29,14 +29,14 @@ def cal_angle(s_lat, s_long, g_lat, g_long):
         a = 180+(180+a)
     return int(a)
 
-def max_distance(*args):
-    return(max(*args))
+def max_distance(args):
+    return(max(args))
 
-def cal_demo_size(demo_size,max_dist,*distance):
+def cal_demo_size(demo_size,max_dist,distance):
     data=[]
     ratio=demo_size/max_dist
     for i in distance:
-        data.append(i*ratio)
+        data.append(int(i*ratio))
     return data
 
 
@@ -58,11 +58,11 @@ def command(speed):
         else:
             angle_command.append("ccw {}\n".format(diff_angle[i]*(-1)))
 
-    for i in range(0,len(distance)):
+    for i in range(0, len(distance)):
         j=distance[i]//500
         k=distance[i]%500
         section_distance=[]
-        for j in range(j):
+        for l in range(j):
             section_distance.append("forward 500\n")
         section_distance.append("forward {}\n".format(k))
         distance_command.append(section_distance)
@@ -92,6 +92,9 @@ if __name__=="__main__":
         distance.append(cal_distance(gps[i][0], gps[i][1], gps[i+1][0], gps[i+1][1]))
         angle.append(cal_angle(gps[i][0], gps[i][1], gps[i+1][0], gps[i+1][1]))
 
+    print(distance)
+    #maxDistance=max_distance(distance)
+    #distance=cal_demo_size(300,maxDistance,distance)
     cal_f_angle()
     command(20)
 
