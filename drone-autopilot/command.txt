@@ -5,7 +5,7 @@ stop
 ccw 51
 forward 118
 stop
-ccw 631
+cw 89
 forward 192
 stop
 ccw 87

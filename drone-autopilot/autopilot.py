@@ -45,6 +45,7 @@ def cal_f_angle():
     diff_angle.append(angle[0])
     for i in range(len(angle)-1):
         diff_angle.append(angle[i+1]-angle[i])
+        print(diff_angle)
 
 def command(speed):
     f=open("command.txt",'w')
@@ -52,11 +53,14 @@ def command(speed):
     distance_command=[]
 
     for i in range(0,len(diff_angle)):
-        if diff_angle[i] >=0 and diff_angle[i] <180:
+        if diff_angle[i] >=0 and diff_angle[i] < 180:
             angle_command.append("cw {}\n".format(diff_angle[i]))
-
-        else:
+        elif(diff_angle[i]>=180):
             angle_command.append("ccw {}\n".format(360-diff_angle[i]))
+        elif (diff_angle[i] < 0 and diff_angle[i] > -180):
+            angle_command.append("ccw {}\n".format(-diff_angle[i]))
+        elif(diff_angle[i]<= -180):
+            angle_command.append("cw {}\n".format(360+diff_angle[i]))
 
     for i in range(0, len(distance)):
         j=distance[i]//500
