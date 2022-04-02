@@ -52,11 +52,11 @@ def command(speed):
     distance_command=[]
 
     for i in range(0,len(diff_angle)):
-        if diff_angle[i] >=0:
+        if diff_angle[i] >=0 and diff_angle[i] <180:
             angle_command.append("cw {}\n".format(diff_angle[i]))
 
         else:
-            angle_command.append("ccw {}\n".format(diff_angle[i]*(-1)))
+            angle_command.append("ccw {}\n".format(360-diff_angle[i]))
 
     for i in range(0, len(distance)):
         j=distance[i]//500
@@ -93,8 +93,8 @@ if __name__=="__main__":
         angle.append(cal_angle(gps[i][0], gps[i][1], gps[i+1][0], gps[i+1][1]))
 
     print(distance)
-    #maxDistance=max_distance(distance)
-    #distance=cal_demo_size(300,maxDistance,distance)
+    maxDistance=max_distance(distance)
+    distance=cal_demo_size(300,maxDistance,distance)
     cal_f_angle()
     command(20)
 

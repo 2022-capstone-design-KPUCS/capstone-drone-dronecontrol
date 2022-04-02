@@ -1,0 +1,14 @@
+command
+takeoff
+speed 20
+stop
+cw 309
+forward 118
+stop
+ccw 271
+forward 192
+stop
+cw 273
+forward 300
+stop
+land

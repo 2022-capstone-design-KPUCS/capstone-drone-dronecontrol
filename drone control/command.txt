@@ -1,0 +1,4 @@
+command
+takeoff
+forward 300
+land
