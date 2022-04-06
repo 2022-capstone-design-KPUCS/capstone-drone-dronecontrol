@@ -2,15 +2,6 @@ import time, cv2
 from threading import Thread
 from djitellopy import Tello
 
-
-
-tello = Tello()
-tello.connect()
-print(tello.get_battery())
-keepRecording = True
-tello.streamon()
-frame_read = tello.get_frame_read()
-
 def videoRecorder():
     global keepRecording
     start_time = time.time()
@@ -24,6 +15,35 @@ def videoRecorder():
         time.sleep(1 / 30)
 
     video.release()
+
+def drone_control():
+    f= open('./command.txt', 'r')
+    command=f.readline()
+    for i in command:
+        if i == "takeoff":
+            tello.takeoff()
+        elif i[:5] =="speed":
+            speed=int(i[6:])
+            tello.set_speed(speed)
+        elif i[:3] =="ccw":
+            angle=int(i[4:])
+            tello.rotate_counter_clockwise(angle)
+        elif i[:2] =="cw":
+            angle=int(i[3:])
+            tello.rotate_clockwise(angle)
+        elif i[:7] == "forward":
+            distance=int(i[8:])
+            tello.move_forward(distance)
+        elif i == "land":
+            tello.land()
+
+tello = Tello()
+tello.connect()
+print(tello.get_battery())
+keepRecording = True
+tello.streamon()
+frame_read = tello.get_frame_read()
+
 
 recorder = Thread(target=videoRecorder)
 recorder.start()

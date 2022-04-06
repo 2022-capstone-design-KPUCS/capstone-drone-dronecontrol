@@ -49,7 +49,7 @@ def cal_f_angle():
         print(diff_angle)
 
 def command(speed):
-    f=open("command.txt",'w')
+    f=open("../drone control/command.txt",'w')
     angle_command=[]
     distance_command=[]
 
@@ -77,13 +77,11 @@ def command(speed):
     f.write("speed {}\n".format(speed))
 
     for i in range(len(angle_command)):
-        f.write("stop\n")
         f.write(angle_command[i])
 
         for j in range(len(distance_command[i])):
             f.write(distance_command[i][j])
 
-    f.write("stop\n")
     f.write("land\n")
 
     f.close()
