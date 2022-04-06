@@ -3,6 +3,7 @@ import numpy
 from haversine import haversine
 
 gps=[(37.3408847,126.7328347), (37.3411523,126.7324290),(37.3416870,126.7329567),(37.3423832,126.7319496)]
+
 distance=[]
 angle=[]
 diff_angle=[]
