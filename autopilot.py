@@ -49,7 +49,7 @@ def cal_f_angle():
         print(diff_angle)
 
 def command(speed):
-    f=open("../drone control/command.txt",'w')
+    f=open("./command.txt",'w')
     angle_command=[]
     distance_command=[]
 
